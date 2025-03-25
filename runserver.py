@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route('/home')
 def home():
     return render_template(
-        'ChordVision-Beta/Test 7/Test/Test/templates/home.html',
+        "templates/home.html",
         title='Home Page',
         year=datetime.now().year,
     )
