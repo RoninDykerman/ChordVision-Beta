@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route('/home')
 def home():
     return render_template(
-        'Test 7/Test/Test/templates/home.html',
+        'ChordVision-Beta\Test 7\Test\Test\templates\home.html',
         title='Home Page',
         year=datetime.now().year,
     )
@@ -74,7 +74,7 @@ def come_on_lets_go():
 @app.route('/tutorial')
 def tutorial():
     return render_template(
-        'Test 7/Test/Test/templates/tutorial.html'
+        'ChordVision-Beta\Test 7\Test\Test\templates\tutorial.html'
     )
 
 if __name__ == '__main__':
