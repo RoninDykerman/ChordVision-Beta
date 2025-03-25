@@ -1,0 +1,119 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Website\\Test 7\\Test 7\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{51ACAD8A-8392-415D-B987-33F76AE47492}|Test\\Project 3.pyproj|C:\\Website\\Test 7\\Test 7\\Test\\Test\\templates\\tutorial.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{51ACAD8A-8392-415D-B987-33F76AE47492}|Test\\Project 3.pyproj|solutionrelative:Test\\Test\\templates\\tutorial.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51ACAD8A-8392-415D-B987-33F76AE47492}|Test\\Project 3.pyproj|C:\\Website\\Test 7\\Test 7\\Test\\Test\\templates\\home.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{51ACAD8A-8392-415D-B987-33F76AE47492}|Test\\Project 3.pyproj|solutionrelative:Test\\Test\\templates\\home.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51ACAD8A-8392-415D-B987-33F76AE47492}|Test\\Project 3.pyproj|C:\\Website\\Test 7\\Test 7\\Test\\Test\\templates\\come_on_lets_go.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{51ACAD8A-8392-415D-B987-33F76AE47492}|Test\\Project 3.pyproj|solutionrelative:Test\\Test\\templates\\come_on_lets_go.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51ACAD8A-8392-415D-B987-33F76AE47492}|Test\\Project 3.pyproj|C:\\Website\\Test 7\\Test 7\\Test\\Test\\templates\\layout.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{51ACAD8A-8392-415D-B987-33F76AE47492}|Test\\Project 3.pyproj|solutionrelative:Test\\Test\\templates\\layout.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51ACAD8A-8392-415D-B987-33F76AE47492}|Test\\Project 3.pyproj|C:\\Website\\Test 7\\Test 7\\Test\\Test\\templates\\library.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{51ACAD8A-8392-415D-B987-33F76AE47492}|Test\\Project 3.pyproj|solutionrelative:Test\\Test\\templates\\library.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51ACAD8A-8392-415D-B987-33F76AE47492}|Test\\Project 3.pyproj|C:\\Website\\Test 7\\Test 7\\Test\\Test\\views.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{51ACAD8A-8392-415D-B987-33F76AE47492}|Test\\Project 3.pyproj|solutionrelative:Test\\Test\\views.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "views.py",
+              "DocumentMoniker": "C:\\Website\\Test 7\\Test 7\\Test\\Test\\views.py",
+              "RelativeDocumentMoniker": "Test\\Test\\views.py",
+              "ToolTip": "C:\\Website\\Test 7\\Test 7\\Test\\Test\\views.py",
+              "RelativeToolTip": "Test\\Test\\views.py",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAEsAAAAXAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARXSURBVFhHxZdfiFR1FMc/v3vnzzqrbbvmuqWJCsk2BjW5ML0kK4TkQyEE6dMyCBeqhyR72S2I6KGIejEfhx56kLKMooxArZTMXCIXpBalpJqUTSfN3dm9d6fZ3\u002B/0cOfOztz50xW1vnC4vznn/s75/s45v3MZ\u002BD8hImHVfw4VVgRwHOdG2F0EhvP5/M9hQxgdCezduzes/lfs3r2bdDo9OTk52ROFhBVW3AyMjIykM5nMZeCY4zhrwvZ63BICALlcLlMl8aXjOKvD9gCxsKIVxsfHw6oGDA0NYdt2WE0ul8sAExMTE8ccxxnO5/MXwu9EysDQ0FBHaRU8QC6Xy6TT6RngWNjGrWrCdsjn803xmhQB6glcTwk8zwubARgdHW1JoC0cxxHXdcV1XSmVSh0leM91XfE8ryb1\u002BnZzJVIP2LbdUWKxGIlEkiuecO6Sx\u002BnCDGf/mKM4p0kkEh17pG1KopZgcHCQ05eE/Sd/4a9ZD6M1Rmu0XsBozfLuBGNPbOL898fZsWNHU7wmRYB6AlrrsLmGxJIUT\u002B47wa7N67k87fL\u002ByfNNJFJxi/3PPcKKvt6meDdcgmm3QqWygK3AUmCMwRhdFX89485TkRgisjTsOxKB8fHxtmKMYIzmrc9/4N2vf6qdflEMRmuqHdg0\u002BJpSEqBdCSzLwo7F\u002BXFqlqulMkYMc/MVRAxiBBHDqXNTnDp7EV0jscChl7ayMjXlh0ys/R37jj1KqYORCARQSlEWmxc\u002BOMNvxVLNeX2g1mvNkZfvp08fqDqKQ98eTWzFpusqQbFY5MPvLlCoBa9KqObNa42imkXRsFCC0mEbeCoSgWDmr1q1iolfrzQ4NsavcWvxbalknGWJa2AqoMtgyuCdAdgciUDQ8ZZlUfhztua4pdSdXIymp7uLN3c9SMz9yg9syj6JcgGkMhipB4JBNDw8zLbXj2C0rtbXv\u002BcP3dPPs1u7WL6kFPICSesazJ4AXfIzYCog1efad6Jdw6AEIkJ3wmo48YaB23ht\u002ByXuUu\u002BRnP\u002BsTg6RdD\u002BCmcOwML2Y\u002BiADugLWkmgEghKICOv7lzbUf1tmJco71bhBdDVIXdBa4Oo6uQ5U7FwkAsEtKBQKDN97Z0MGelIGgjEDjY0WDlqvW7YF4JNIBLLZLNlsloGBAR59YDXbMmuwlT8BCf5biOkcOPit/4buLPQ\u002BPgfsi9SE9bAsi3g8jmVVueurUHxlscFMBeJroOs\u002Bn5Ro/9m7Hezap2ASeEYpdTxSBuphjKFcLuN5HvPz876ydrrqab1JuLIfrh6Ea59C8W0wJYC1QJdSaqNS6jhRP0btICL\u002BWA3XNyDS/zTc/QaYCiIWwJRSqlzvo2MJwrpWGBsbY133xzD77eL9rpViNcR6QVl4/a8eSKVSO8P72xKIChHZCOYoM0cHmP4CvLP\u002BvVdx6NoAPVuoLH3MjSeSDyulTof33xSIyO0i8ryIfCMiJfFREpGTIvKiiCwP7wnwD7tNXzLGHmUXAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-03-06T17:10:50.658Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "library.html",
+              "DocumentMoniker": "C:\\Website\\Test 7\\Test 7\\Test\\Test\\templates\\library.html",
+              "RelativeDocumentMoniker": "Test\\Test\\templates\\library.html",
+              "ToolTip": "C:\\Website\\Test 7\\Test 7\\Test\\Test\\templates\\library.html",
+              "RelativeToolTip": "Test\\Test\\templates\\library.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-03-05T19:58:28.665Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "layout.html",
+              "DocumentMoniker": "C:\\Website\\Test 7\\Test 7\\Test\\Test\\templates\\layout.html",
+              "RelativeDocumentMoniker": "Test\\Test\\templates\\layout.html",
+              "ToolTip": "C:\\Website\\Test 7\\Test 7\\Test\\Test\\templates\\layout.html",
+              "RelativeToolTip": "Test\\Test\\templates\\layout.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-03-24T19:43:59.669Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "come_on_lets_go.html",
+              "DocumentMoniker": "C:\\Website\\Test 7\\Test 7\\Test\\Test\\templates\\come_on_lets_go.html",
+              "RelativeDocumentMoniker": "Test\\Test\\templates\\come_on_lets_go.html",
+              "ToolTip": "C:\\Website\\Test 7\\Test 7\\Test\\Test\\templates\\come_on_lets_go.html",
+              "RelativeToolTip": "Test\\Test\\templates\\come_on_lets_go.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-03-24T19:35:58.852Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "tutorial.html",
+              "DocumentMoniker": "C:\\Website\\Test 7\\Test 7\\Test\\Test\\templates\\tutorial.html",
+              "RelativeDocumentMoniker": "Test\\Test\\templates\\tutorial.html",
+              "ToolTip": "C:\\Website\\Test 7\\Test 7\\Test\\Test\\templates\\tutorial.html",
+              "RelativeToolTip": "Test\\Test\\templates\\tutorial.html",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-03-24T19:32:19.973Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "home.html",
+              "DocumentMoniker": "C:\\Website\\Test 7\\Test 7\\Test\\Test\\templates\\home.html",
+              "RelativeDocumentMoniker": "Test\\Test\\templates\\home.html",
+              "ToolTip": "C:\\Website\\Test 7\\Test 7\\Test\\Test\\templates\\home.html",
+              "RelativeToolTip": "Test\\Test\\templates\\home.html",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACIAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-03-24T18:27:04.428Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

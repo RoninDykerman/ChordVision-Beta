@@ -1,0 +1,262 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+
+    .flex-container {
+        display: flex;
+        background-color: #f1f1f1;
+        height: 100%;
+        padding: 10px;
+        gap: 10px;
+        background-size: cover;
+    }
+
+    @media (max-width: 800px) {
+        .flex-container {
+            flex-direction: column;
+        }
+        #pauseButton{
+            background-size: 10vw;
+        }
+    }
+
+    .box1 {
+        flex: 2.5;
+        color: black;
+        font-size: 30vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+        border-radius: 5px;
+        transition: background-color 0.5s ease;
+    }
+
+    .stack-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex-basis: 200px
+    }
+
+        .stack-container > div {
+            flex: 1;
+            color: black;
+            font-size: 15vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border-radius: 5px;
+            transition: background-color 0.5s ease;
+        }
+
+    #pauseButton {
+        cursor: pointer;
+        padding: 10px;
+        background-color: limegreen;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 16px;
+        background-image: url('static/Media/pause.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 50% 50%;
+        min-height: 20vh;
+    }
+</style>
+
+
+<script>
+    let chords = {
+        rest: [null, "#dbdbdb"],
+        A: ["A", '#ffffff'],
+        D: ["D", '#00fa79'],
+        E: ["E", '#a8caff'],
+        B: ["B", '#c5f986'],
+        Em: ["Em", '#ade1e6'],
+        Am: ["Am", '#ff94c8'],
+        C: ["C", '#fca664'],
+        c3: ['3', '#f9aaaa'],
+        c2: ['2', '#f9aaaa'],
+        c1: ['1', '#f9aaaa']
+    };
+
+    let isPaused = false;
+    let resumeResolve = null;
+    let resumePromise = null;
+    let prevChord = null;
+    let beat = (60 / 162);
+
+    function togglePause() {
+        isPaused = !isPaused;
+        const button = document.getElementById("pauseButton");
+
+        if (isPaused) {
+            button.style.backgroundImage = "url('static/Media/play-button.png')";
+            button.style.backgroundColor = "Red";
+            resumePromise = new Promise((resolve) => {
+                resumeResolve = resolve;
+            });
+        } else {
+            button.style.backgroundImage = "url('static/Media/pause.png')";
+            button.style.backgroundColor = "limegreen";
+
+            if (resumeResolve) {
+                resumeResolve();
+                resumeResolve = null;
+                resumePromise = null;
+            }
+        }
+    }
+
+    async function pauseExecution() {
+        if (isPaused) {
+            await resumePromise;
+        }
+    }
+
+    let numbers = [[chords.c3, 2], [chords.c2, 2], [chords.c1, 2]]
+    let i = 0
+    async function countdown(){
+        //let countdown = [[chords.c3, 2], [chords.c2, 2], [chords.c1, 2]]
+        /*for (let i = 0; i < countdown; i++) {
+            changeChord(countdown[i]);
+
+        }*/
+       if(i < 3){
+            changeChord(numbers[i][0]);
+            i++;
+            setTimeout(countdown, (numbers[i-1][1])*beat*1000);
+       }
+       else{
+            prevChord = null;
+            lets_go();
+       }
+        
+    }
+
+    async function playSequence(sequence, index = 0, nextFunction) {
+
+        if (index < sequence.length) {
+
+            await pauseExecution();
+
+            if (prevChord != null) {
+                changeChord(prevChord);
+            }
+
+            changePreview(sequence[index][0]);
+
+            // Calculate the duration of the current chord
+            const chordDuration = beat * 1000 * sequence[index][1];
+
+            // Wait for the chord duration
+            await new Promise((resolve) => setTimeout(resolve, chordDuration));
+
+            // Recursively call playSequence for the next chord
+            await playSequence(sequence, index + 1, nextFunction);
+        }
+
+        if (index >= sequence.length && nextFunction) {
+            nextFunction();
+        }
+    }
+
+    let keyPressed = false;
+
+    document.addEventListener("keydown", function (event) {
+        if (event.code === "Space" && !keyPressed) {
+            event.preventDefault(); // Prevent scrolling if spacebar
+            togglePause(); // Pauses song
+            keyPressed = true;
+        }
+    });
+
+    //Prevents the pause function from being called until space bar is hit again
+    document.addEventListener("keyup", function (event) {
+        keyPressed = false;
+    });
+
+    function lets_go() {
+        let intro = [[chords.A, 3], [chords.D, 2], [chords.E, 2], [chords.A, 3], [chords.D, 3], [chords.E, 2], [chords.A, 4], [chords.D, 2], [chords.E, 2], [chords.A, 2], [chords.C, 3], [chords.E, 2]]
+        let chorus = [[chords.E, 4], [chords.A, 4], [chords.D, 3], [chords.E, 2], [chords.A, 3], [chords.D, 3], [chords.E, 2], [chords.A, 4], [chords.D, 1], [chords.E, 3], [chords.A, 3], [chords.D, 3]]
+        let e1 = [[chords.E, 6]]
+        let verse1 = [[chords.A, 3], [chords.D, 3], [chords.E, 2], [chords.A, 3], [chords.D, 3], [chords.E, 2], [chords.A, 3], [chords.D, 3], [chords.E, 2], [chords.A, 2], [chords.D, 2]]
+        let hook1 = [[chords.D, 8], [chords.A, 4], [chords.E, 3], [chords.A, 5], [chords.D, 3], [chords.A, 5], [chords.B, 4], [chords.E, 4]]
+        let verse2 = [[chords.A, 3], [chords.D, 3], [chords.E, 2], [chords.A, 3], [chords.D, 3], [chords.E, 2], [chords.A, 4], [chords.D, 1], [chords.E, 3], [chords.A, 2]]
+        let instrumental = [[chords.D, 2], [chords.E, 3], [chords.A, 4], [chords.D, 3], [chords.E, 2], [chords.A, 3], [chords.D, 3], [chords.E, 1], [chords.A, 4], [chords.D, 3], [chords.Em, 1], [chords.Am, 5], [chords.A, 3], [chords.D, 9], [chords.A, 8], [chords.D, 8], [chords.E, 7]]
+        let hook2 = [[chords.D, 5], [chords.A, 4], [chords.E, 4], [chords.A, 4], [chords.D, 4], [chords.A, 4], [chords.E, 7]]
+        let outro = [[chords.A, 4], [chords.D, 3], [chords.E, 1], [chords.A, 5], [chords.D, 2], [chords.E, 2], [chords.A, 4], [chords.D, 2], [chords.E, 2], [chords.A, 4], [chords.D, 2], [chords.E, 2], [chords.A, 3], [chords.D, 3], [chords.E, 2], [chords.A, 3], [chords.D, 2], [chords.E, 2], [chords.rest, 0], [chords.rest, 0]]
+
+
+        function start() {
+            playSequence(intro, 0, playChorus);
+        }
+
+        function playChorus() {
+            playSequence(chorus, 0, playE1);
+        }
+
+        function playE1() {
+            playSequence(e1, 0, playVerse1);
+        }
+
+        function playVerse1() {
+
+            playSequence(verse1, 0, playHook1);
+        }
+
+        function playHook1() {
+            playSequence(hook1, 0, playVerse2);
+        }
+
+        function playVerse2() {
+            playSequence(verse2, 0, playInstrumental);
+        }
+
+        function playInstrumental() {
+            playSequence(instrumental, 0, playHook2);
+        }
+
+        function playHook2() {
+            playSequence(hook2, 0, playOutro);
+        }
+
+        function playOutro() {
+            playSequence(outro, 0, null);
+        }
+
+        start();
+    }
+
+    function changeChord(image) {
+        const picture = document.querySelector('.box1'); //makes a variable of all '.box1' objects that allows us to change its style
+        picture.textContent = image[0]; //Changes text
+        picture.style.backgroundColor = image[1]; //changes background colour
+    }
+
+    function changePreview(image) {
+        const picture = document.getElementById("preview");
+        picture.textContent = image[0];
+        picture.style.backgroundColor = image[1];
+        prevChord = image;
+    }
+
+    window.onload = countdown;
+
+</script>
+
+<div class="flex-container">
+    <div class="box1"></div>
+    <div class="stack-container">
+        <div id="pauseButton" onclick="togglePause()"></div>
+        <div id="preview"></div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,176 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+    .flex-container {
+        display: flex;
+        background-color: #f1f1f1;
+        height: 90vh;
+        padding: 10px;
+        gap: 10px;
+        background-size: cover;
+    }
+
+    @media (max-width: 800px){
+        .flex-container{
+            flex-direction: column;
+        }
+    }
+
+    .box1 {
+        flex: 3;
+        color: black;
+        font-size: 30vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+        border-radius: 5px;
+        transition: background-color 0.5s ease;
+    }
+
+    .stack-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex-basis: 200px
+    }
+
+        .stack-container > div {
+            flex: 1;
+            color: black;
+            font-size: 15vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border-radius: 5px;
+            transition: background-color 0.5s ease;
+        }
+
+    #pauseButton {
+        cursor: pointer;
+        padding: 10px;
+        background-color: lightgray;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 16px;
+    }
+
+</style>
+
+<script>
+    let isPaused = false;
+    let resumeResolve = null;
+    let resumePromise = null;
+    let prevChord = null;
+
+    const chords = {
+        Am: ['Am', '#ff94c8'],
+        E7: ['E7', '#00ddfa'],
+        G: ['G', '#fbff0a'],
+        D: ['D', '#00fa79'],
+        F: ['F', '#ee94f9'],
+        C: ['C', '#fca664'],
+        Dm: ['Dm', '#c3c2ff']
+    };
+
+    function togglePause() {
+
+        isPaused = !isPaused; //Flips isPaused from true to false or vice versa
+        const button = document.getElementById("pauseButton"); //Creates a vaiable of all objects with id "pauseButton" to allow editing of styles
+
+        if (isPaused) {
+            button.textContent = "Resume"; //Changes text
+            button.style.backgroundColor = "Red"; //Changes background colour
+            resumePromise = new Promise((resolve) => { //create promise
+                resumeResolve = resolve; //store resolve function
+            });
+        } else {
+            button.textContent = "Pause"; //Changes text
+            button.style.backgroundColor = "lightgray"; //changes background colour
+
+            if (resumeResolve) {
+                resumeResolve(); //Resolves promise to continue code execution
+                resumeResolve = null; //Clears resolve function
+                resumePromise = null; //Clears promise function
+            }
+        }
+    }
+
+    async function pauseExecution() {
+        if (isPaused) { //Checks if paused
+            await resumePromise; //Waits for resumePromise to resolve
+        }
+    }
+
+    async function playSequence(sequence, index = 0, nextFunction, chordDuration) {
+        if (index < sequence.length) {
+            await pauseExecution(); //Checks to make sure the song is not paused
+            if (prevChord != null) {
+                changeChord(prevChord);
+            }
+            changePreview(sequence[index]);
+            await new Promise((resolve) => setTimeout(resolve, chordDuration)); //Pauses code execution for the chord duration
+            await playSequence(sequence, index + 1, nextFunction, chordDuration); //Calls the next chord in the sequence
+        }
+
+        //Calls next function when the index exceeds the sequence length
+        if (index >= sequence.length && nextFunction) {
+            nextFunction();
+        }
+    }
+
+    function hotel_california() {
+        const beat = 60 / 148; // Duration of one beat in seconds
+        const chordDuration = 8000 * beat; // Duration of one chord in milliseconds
+
+        const verse = [chords.Am, chords.E7, chords.G, chords.D, chords.F, chords.C, chords.Dm, chords.E7];
+        const chorus = [chords.F, chords.C, chords.E7, chords.Am, chords.F, chords.C, chords.Dm, chords.E7];
+        const intro = [chords.Am, chords.E7, chords.G, chords.D, chords.F, chords.C, chords.Dm, chords.E7];
+
+        function start() {
+            playSequence(intro, 0, startVerse, chordDuration);
+        }
+
+        function startVerse() {
+            playSequence(verse, 0, startChorus, chordDuration);
+        }
+
+        function startChorus() {
+            playSequence(chorus, 0, startVerse, chordDuration);
+        }
+
+        start();
+    }
+
+    function changeChord(image) {
+        const picture = document.querySelector('.box1'); //makes a variable of all '.box1' objects that allows us to change its style
+        picture.textContent = image[0]; //Changes text
+        picture.style.backgroundColor = image[1]; //changes background colour
+    }
+
+    function changePreview(image) {
+        const picture = document.getElementById("preview");
+        picture.textContent = image[0];
+        picture.style.backgroundColor = image[1];
+        prevChord = image;
+    }
+
+    window.onload = hotel_california;
+</script>
+
+<body>
+    <div class="flex-container">
+        <div class="box1"></div>
+        <div class="stack-container">
+            <div id="pauseButton" onclick="togglePause()">Pause</div> 
+            <div id="preview"></div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

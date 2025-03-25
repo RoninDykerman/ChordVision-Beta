@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+    .custom-table {
+        font-size: 6vw;
+        width: 100%;
+        border: 5px solid black;
+        border-collapse: collapse;
+        font-family: sans-serif;
+    }
+
+    th {
+        background-color: #1A5F7A;
+        color: #FFFFFF;
+        padding: 12px;
+        text-align: left;
+        border: 3px solid black;
+        border-bottom: 5px solid black;
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background-color: #FFF8F0;
+        color: #0A2463;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #E6F0F9;
+        color: #0A2463;
+    }
+
+    
+    td {
+        padding: 10px;
+        text-align: left;
+        border: 3px solid black;
+        border-bottom: 5px solid black;
+    }
+
+</style>
+
+<table class="custom-table">
+    <tr style="background-color: #FF7F50;">
+        <th>Song Name</th>
+        <th>Artist</th>
+        <!--<th>Length</th>-->
+    </tr>
+    <tr onclick="window.location.href='{{ url_for("hotel_california") }}';" style="cursor: pointer;">
+        <td>Hotel California</td>
+        <td>The Eagles</td>
+        <!--<td>6:31</td>-->
+    </tr>
+    <tr onclick="window.location.href ='{{ url_for("thatll_be_the_day") }}';" style="cursor: pointer;">
+        <td>That'll Be The Day</td>
+        <td>Buddy Holly, The Crickets</td>
+        <!--<td>2:16</td>-->
+    </tr>
+    <tr onclick="window.location.href = '{{ url_for("la_bamba") }}';" style="cursor: pointer;">
+        <td>La Bamba</td>
+        <td>Los Lobos</td>
+        <!--<td>2:54</td>-->
+    </tr>
+    <tr onclick="window.location.href = '{{ url_for("let_it_be") }}';" style="cursor: pointer;">
+        <td>Let It Be</td>
+        <td>The Beatles</td>
+        <!--<td>4:04</td>-->
+    </tr>
+
+    <tr onclick="window.location.href = '{{ url_for("take_it_easy") }}';" style="cursor: pointer;">
+        <td>Take it Easy</td>
+        <td>Eagles</td>
+        <!--<td>4:04</td>-->
+    </tr>
+
+    <tr onclick="window.location.href = '{{ url_for("come_on_lets_go") }}';" style="cursor: pointer;">
+        <td>Come on Let's Go</td>
+        <td>Ritchie Valens</td>
+        <!--<td>4:04</td>-->
+    </tr>
+</table>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+    .flex-container {
+        display: flex;
+        flex-direction: row;
+        background-color: #f1f1f1;
+        height: 100vh;
+        padding: 10px;
+        gap: 10px;
+        background-size: cover;
+    }
+
+        .flex-container > div {
+            flex: 1;
+            color: black;
+            font-size: 10vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: lightgray;
+        }
+
+    @media (max-width: 800px) {
+        .flex-container {
+            flex-direction: column;
+        }
+    }
+</style>
+
+<div class="flex-container">
+    <div onclick="window.location.href='{{ url_for("library") }}';" style="cursor: pointer;">Song Library</div>
+    <div onclick="window.location.href = '{{ url_for("tutorial") }}';" style="cursor: pointer;">Tutorial</div>
+</div>
+
+{% endblock %}
